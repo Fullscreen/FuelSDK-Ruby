@@ -119,7 +119,7 @@ module FuelSDK
 		include FuelSDK::Targeting
 
 		def header
-			raise 'Require legacy token for soap header' unless internal_token
+			# raise 'Require legacy token for soap header' unless internal_token
 			{
 				'oAuth' => {'oAuthToken' => internal_token},
 				:attributes! => { 'oAuth' => { 'xmlns' => 'http://exacttarget.com' }}
