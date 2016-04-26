@@ -135,7 +135,7 @@ module FuelSDK
 		end
 
 		def soap_client
-			# self.refresh
+			self.refresh
 			@soap_client = Savon.client(
 				soap_header: header,
 				wsdl: wsdl,
