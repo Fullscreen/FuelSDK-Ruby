@@ -123,6 +123,7 @@ module FuelSDK
 				options = Hash.new.tap do |h|
 					h['data'] = payload
 					h['content_type'] = 'application/json'
+					h['params'] = {'legacy' => 1}
 				end
 				response = post("https://auth.exacttargetapis.com/v1/requestToken", options)
 				raise "Unable to refresh token: #{response['message']}" unless response.has_key?('accessToken')
