@@ -127,6 +127,7 @@ module FuelSDK
 					h['params'] = {'legacy' => 1}
 				end
 				response = post(request_token_url, options)
+				raise "Unable to refresh token: #{response['message']}" unless response.has_key?('accessToken')
 
 				self.access_token = response['accessToken']
 				self.internal_token = response['legacyToken']
