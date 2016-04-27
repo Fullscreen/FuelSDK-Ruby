@@ -114,7 +114,7 @@ module FuelSDK
 			@refresh_mutex.synchronize do
 				raise 'Require Client Id and Client Secret to refresh tokens' unless (id && secret)
 				#If we don't already have a token or the token expires within 5 min(300 seconds)
-				if (self.access_token.nil? || Time.new > self.auth_token_expiration || force) then
+				if (self.access_token.nil? || Time.new + 300 > self.auth_token_expiration || force) then
 				payload = Hash.new.tap do |h|
 					h['clientId']= id
 					h['clientSecret'] = secret
